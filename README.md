@@ -1,5 +1,5 @@
 # ToyBox-cli
----
+
 ToyBox-cli is an enviroment generator for toy problems.
 
 ## Installation
