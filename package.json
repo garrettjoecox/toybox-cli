@@ -1,12 +1,9 @@
 {
   "name": "toybox-cli",
   "description": "An enviroment generator for toy problems",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/garrettjoecox/toybox-cli",
-  "author": {
-    "name": "Garrett Cox",
-    "email": "garrettjcox@gmail.com"
-  },
+  "author": "Garrett Cox <garrettjcox@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/garrettjoecox/toybox-cli.git"
@@ -53,7 +50,17 @@
   },
   "keywords": [
     "cli",
-    "tool",
-    "app"
-  ]
+    "hack",
+    "reactor",
+    "hackreactor",
+    "toy",
+    "problems",
+    "toyproblems",
+    "enviroment",
+    "generator"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT"
 }
