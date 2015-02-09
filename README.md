@@ -1,118 +1,22 @@
-# toybox-cli [![Build Status](https://secure.travis-ci.org/garrettjoecox/toybox-cli.png?branch=master)](https://travis-ci.org/garrettjoecox/toybox-cli) [![NPM version](https://badge-me.herokuapp.com/api/npm/toybox-cli.png)](http://badges.enytc.com/for/npm/toybox-cli)
+# ToyBox-cli
+---
+ToyBox-cli is an enviroment generator for toy problems.
 
-> An enviroment generator for toy problems
-
-## Getting Started
-Install the module with: 
+## Installation
+Install the module with:
 
 ```bash
 $ npm install -g toybox-cli
 ```
 
-Example:
+## Getting started
 
-```javascript
-var Api = require('toybox-cli');
-//Create new instance of toybox-cli
-var api = new Api('access_token');
+Generate a new toybox with:
 ```
-
-## Documentation
-
-#### .prompt(prompts, cb)
-
-**Parameter**: `prompts`
-**Type**: `Array`
-**Example**: 
-
-```javascript
-var prompts = [
-{
-	type: 'input',
-	name: 'name',
-	message: 'What\'s your name?'
-}, 
-{
-	type: 'input',
-	name: 'email',
-	message: 'What\'s your email?'
-}];
+$ toybox new [desiredname]
 ```
-
-**Parameter**: `cb`
-**Type**: `Function`
-**Example**:
-
-```javascript
-function(answers) {
-	
-}
-```
-
-The 'prompt' method is responsible for asking questions
-
-How to use this method
-
-```javascript
-var prompts = [
-{
-	type: 'input',
-	name: 'name',
-	message: 'What\'s your name?'
-}, 
-{
-	type: 'input',
-	name: 'email',
-	message: 'What\'s your email?'
-}];
-
-api.prompt(prompts, function(answers) {
-	console.log(answers);
-}); 
-```
-
-#### .signup(name, email, password)
-
-**Parameter**: `name`
-**Type**: `String`
-**Example**: `myname`
-
-
-**Parameter**: `email`
-**Type**: `String`
-**Example**: `example@example.com`
-
-
-**Parameter**: `password`
-**Type**: `String`
-**Example**: `123456test`
-
-
-The 'signup' method is responsible for create accounts
-
-How to use this method
-
-```javascript
-
-api.signup('myname', 'email', '123456test');
-```
-
-#### .status(pureJson)
-
-**Parameter**: `pureJson`
-**Type**: `Boolean`
-**Example**: `true`
-
-
-The 'status' method is responsible for showing the status of api
-
-How to use this method
-
-```javascript
-
-api.status(true);
-```
-
+Then just run `toybox` while inside the new directory to start
+the live reload server. (It will reload the window upon saving files)
 
 ## Contributing
 
@@ -121,7 +25,7 @@ See the [CONTRIBUTING Guidelines](https://github.com/garrettjoecox/toybox-cli/bl
 ## Support
 If you have any problem or suggestion please open an issue [here](https://github.com/garrettjoecox/toybox-cli/issues).
 
-## License 
+## License
 
 The MIT License
 
