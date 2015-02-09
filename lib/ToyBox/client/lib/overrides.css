@@ -1,0 +1,63 @@
+* {
+    font-family: "Roboto", sans-serif !important;
+    text-transform: initial !important;
+    font-weight: 400 !important;
+}
+::-webkit-scrollbar {
+    display: none !important;
+}
+html {
+    color: #616161;
+}
+#mocha-stats {
+    z-index: 1000;
+    display: none;
+}
+#mocha-stats>.progress {
+    display: none;
+}
+#mocha-report {
+    margin-bottom: 20px !important;
+}
+.test.fail {
+    margin-right: 15px !important;
+}
+.test.pass {
+    margin-right: 15px !important;
+}
+h1 {
+    line-height: 2;
+    color: #757575;
+}
+#mocha-report>.suite>h1 {
+    text-align: center;
+}
+h2 {
+    line-height: 1.5;
+}
+nav div a {
+    font-size: 2rem !important;
+}
+#mocha .test pre {
+    float: initial;
+    word-wrap: normal;
+    padding: 5px;
+    padding-left: 10px;
+}
+#mocha .test.fail pre code{
+    color: #757575 !important;
+}
+.replay {
+    display: none !important;
+}
+.card {
+    margin-top: 30px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+@media(min-width: 640px){
+    #mocha-stats {
+        display: block;
+    }
+
+}
