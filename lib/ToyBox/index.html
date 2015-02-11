@@ -1,6 +1,3 @@
-<!-- I advise against modifying this file,
-it's simply here to display test results. -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +23,16 @@ it's simply here to display test results. -->
   <script src="lib/mocha.js"></script>
   <script src="lib/chai.js"></script>
   <script>mocha.setup('bdd')</script>
-  <script src="toybox.js"></script>
-  <script src="tests.js"></script>
+
+
+  <!-- Add your Toy-Problem.js here! -->
+
+  <script src="/2015-02-toy-problems/rockPaperScissors/rockPaperScissors.js"></script>
+
+  <!-- ============================= -->
+
+
+  <script src="ToyBoxTests.js"></script>
   <script>
   mocha.checkLeaks();
   mocha.globals(['jQuery']);

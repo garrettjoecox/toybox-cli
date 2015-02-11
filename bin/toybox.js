@@ -25,41 +25,53 @@ var program = require('commander'),
     gulp = require('gulp'),
     fs = require('fs'),
     gulpGulp = require('gulp-gulp'),
-    install = require('gulp-install'),
-    sequence = require('gulp-sequence')
+    ginstall = require('gulp-install'),
+    sequence = require('gulp-sequence'),
+    shell = require('gulp-shell'),
+    inquirer = require('inquirer')
 
 require('colors');
 
 program
-    .command('new [name]')
+    .command('new')
     .action(function(){
-        if (!this.args[0]){
-            return console.log("Please specify a name!".bold.red);
-        };
-
-        gulp.task('copy', function(){
-            var templates = path.join(__dirname, '../lib/ToyBox/**/*');
-            templates = [templates].concat(path.join(__dirname, '../lib/ToyBox/**/.*'));
-            return gulp.src(templates)
-                .pipe(gulp.dest(process.cwd()+'/'+program.args[0]))
-                .pipe(install()).on('end', function(){
-                    console.log('Done! Run "toybox" inside the '.grey + program.args[0].grey + ' directory and'.grey)
-                    console.log("drag the ".grey + program.args[0].grey + "/client/ to sublime to get started!".grey);
-                })
-        }).start();
+        inquirer.prompt([{type:'input',name:'username',message:'Please enter Github username!'}], function(answers){
+            gulp.task('copy', copy())
+            gulp.task('clone', clone(answers.username)).start();
+        })
     });
 
 if(process.argv.length === 2){
-    if(fs.existsSync(process.cwd()+'/.toybox')){
-        gulp.task('runGulpFile', function(){
-            return gulp.src(process.cwd()+'/gulpfile.js')
-                .pipe(gulpGulp());
-        }).start();
+    if(fs.existsSync(process.cwd()+'/gulpfile.js')){
+        gulp.task('runGulpFile', runGulp()).start();
     }else{
         console.log("You're not in a ToyBox!".bold.red);
-        console.log("run 'ToyBox new [name]'".grey);
+        console.log("run 'ToyBox new'".grey);
     }
 }
+
+function runGulp(){
+    return function(){
+        return gulp.src(process.cwd()+'/gulpfile.js')
+            .pipe(gulpGulp());
+    }
+}
+
+function clone(username){
+    return shell.task([
+        'git clone https://github.com/' + username + '/2015-02-toy-problems.git ToyBox/2015-02-toy-problems'
+    ]);
+}
+
+function copy(){
+    return function(){
+        var toybox = path.join(__dirname, '../lib/ToyBox/**/*');
+        return gulp.src(toybox)
+            .pipe(gulp.dest(process.cwd()+'/ToyBox'))
+            .pipe(ginstall());
+    }
+}
+
 
 
 program.parse(process.argv);
