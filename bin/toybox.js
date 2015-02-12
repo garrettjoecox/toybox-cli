@@ -35,9 +35,9 @@ require('colors');
 program
     .command('new')
     .action(function(){
-        inquirer.prompt([{type:'input',name:'username',message:'Please enter Github username!'}], function(answers){
+        inquirer.prompt([{type:'input',name:'username',message:'Enter Github username!'},{type:'input',name:'date',message:'When did you start @ HR? (2015-02, 2014-12, etc)'}], function(answers){
             gulp.task('copy', copy())
-            gulp.task('clone', clone(answers.username)).start();
+            gulp.task('clone', clone(answers.username, answers.date)).start();
         })
     })
 
@@ -64,9 +64,9 @@ function runGulp(){
     }
 }
 
-function clone(username){
+function clone(username, date){
     return shell.task([
-        'git clone https://github.com/' + username + '/2015-02-toy-problems.git ToyBox/2015-02-toy-problems'
+        'git clone https://github.com/' + username + '/' + date + '-toy-problems.git ToyBox/2015-02-toy-problems'
     ]);
 }
 
