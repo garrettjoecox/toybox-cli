@@ -39,15 +39,22 @@ program
             gulp.task('copy', copy())
             gulp.task('clone', clone(answers.username)).start();
         })
+    })
+
+program
+    .command('start')
+    .action(function(){
+        if(fs.existsSync(process.cwd()+'/gulpfile.js')){
+            gulp.task('runGulpFile', runGulp()).start();
+        }else{
+            console.log("You're not in a ToyBox!".bold.red);
+            console.log("run 'ToyBox new'".grey);
+        }
     });
 
 if(process.argv.length === 2){
-    if(fs.existsSync(process.cwd()+'/gulpfile.js')){
-        gulp.task('runGulpFile', runGulp()).start();
-    }else{
-        console.log("You're not in a ToyBox!".bold.red);
-        console.log("run 'ToyBox new'".grey);
-    }
+    console.log("Thanks for using Toybox! (By Garrett Cox)".grey);
+    console.log("Run 'toybox new' to get started!".grey);
 }
 
 function runGulp(){
