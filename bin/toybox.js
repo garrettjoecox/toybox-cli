@@ -32,8 +32,13 @@ var program = require('commander'),
 
 require('colors');
 
+if(process.argv.length === 2){
+    console.log("Thanks for using Toybox! (By Garrett Cox)".grey);
+    console.log("Run 'toybox init' to get started!".grey);
+}
+
 program
-    .command('new')
+    .command('init')
     .action(function(){
         inquirer.prompt([{type:'input',name:'username',message:'Enter Github username!'},{type:'input',name:'date',message:'When did you start @ HR? (2015-02, 2014-12, etc)'}], function(answers){
             gulp.task('copy', copy())
@@ -47,15 +52,11 @@ program
         if(fs.existsSync(process.cwd()+'/gulpfile.js')){
             gulp.task('runGulpFile', runGulp()).start();
         }else{
-            console.log("You're not in a ToyBox!".bold.red);
-            console.log("run 'ToyBox new'".grey);
+            console.log("You're not in a Toybox!".bold.red);
+            console.log("run 'Toybox new'".grey);
         }
     });
 
-if(process.argv.length === 2){
-    console.log("Thanks for using Toybox! (By Garrett Cox)".grey);
-    console.log("Run 'toybox new' to get started!".grey);
-}
 
 function runGulp(){
     return function(){
@@ -66,7 +67,7 @@ function runGulp(){
 
 function clone(username, date){
     return shell.task([
-        'git clone https://github.com/' + username + '/' + date + '-toy-problems.git ToyBox/2015-02-toy-problems'
+        'git clone https://github.com/' + username + '/' + date + '-toy-problems.git toybox/toy-problems-repo'
     ]);
 }
 
@@ -74,7 +75,7 @@ function copy(){
     return function(){
         var toybox = path.join(__dirname, '../lib/ToyBox/**/*');
         return gulp.src(toybox)
-            .pipe(gulp.dest(process.cwd()+'/ToyBox'))
+            .pipe(gulp.dest(process.cwd()+'/toybox'))
             .pipe(ginstall());
     }
 }

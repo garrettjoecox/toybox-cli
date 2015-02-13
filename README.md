@@ -13,9 +13,11 @@ $ npm install -g toybox-cli
 
 Generate a new toybox with:
 ```
-$ toybox new [desiredname]
+$ toybox init
 ```
-Then just run `toybox` while inside the new directory to start
+If it mentions something about not finding gulp run `npm install -g gulp`
+
+Then just run `toybox start` while inside the new directory to start
 the live reload server. (It will reload the window upon saving files)
 
 ## Contributing
