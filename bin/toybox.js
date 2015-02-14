@@ -50,6 +50,7 @@ program
     .command('start')
     .action(function(){
         if(fs.existsSync(process.cwd()+'/gulpfile.js')){
+            gulp.task('open', open())
             gulp.task('runGulpFile', runGulp()).start();
         }else{
             console.log("You're not in a Toybox!".bold.red);
@@ -68,6 +69,12 @@ function runGulp(){
 function clone(username, date){
     return shell.task([
         'git clone https://github.com/' + username + '/' + date + '-toy-problems.git toybox/toy-problems-repo'
+    ]);
+}
+
+function open(){
+    return shell.task([
+        'subl .'
     ]);
 }
 
