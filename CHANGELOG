@@ -2,3 +2,9 @@ v0.1.0:
   date: 2015-2-8
   changes:
     - Initial release.
+v0.2.0:
+  date: 2015-3-28
+  changes:
+    - toybox init - now adds upstream remote
+    - toybox pull - pulls from upstream master
+    - toybox push - pushes to origin master
