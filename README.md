@@ -20,6 +20,12 @@ If it mentions something about not finding gulp run `npm install -g gulp`
 Then just run `toybox start` while inside the new directory to start
 the live reload server. (It will reload the window upon saving files)
 
+## Pulling and Pushing
+As of 0.2.0, `toybox init` now adds the upstream remote for you, and also adds
+the commands `toybox pull` (pulls problems from HR's upstream remote),
+and `toybox push` (prompts for git commit message then pushes to your 
+origin toy problems repo).
+
 ## Contributing
 
 See the [CONTRIBUTING Guidelines](https://github.com/garrettjoecox/toybox-cli/blob/master/CONTRIBUTING.md)

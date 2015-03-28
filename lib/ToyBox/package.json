@@ -1,12 +1,8 @@
 {
-  "name": "ToyBox",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "name": "toybox",
+  "version": "0.2.1",
+  "description": "An enviroment for toy problems",
+  "author": "Garrett Cox <garrettjcox@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "connect-livereload": "^0.5.2",

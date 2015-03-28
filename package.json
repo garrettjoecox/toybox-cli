@@ -1,6 +1,6 @@
 {
   "name": "toybox-cli",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An enviroment generator for toy problems",
   "bin": {
     "toybox": "toybox.js"
