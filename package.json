@@ -1,9 +1,9 @@
 {
   "name": "toybox-cli",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An enviroment generator for toy problems",
   "bin": {
-    "toybox": "toybox.js"
+    "toybox": "bin/toybox.js"
   },
   "dependencies": {
     "gulp": "^3.5.6",

@@ -8,3 +8,7 @@ v0.2.0:
     - toybox init - now adds upstream remote
     - toybox pull - pulls from upstream master
     - toybox push - pushes to origin master
+v0.2.2:
+  date: 2015-3-28
+  changes:
+    - NPM Link issue fixed
