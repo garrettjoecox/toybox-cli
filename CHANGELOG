@@ -27,3 +27,7 @@ v0.2.5:
   changes:
     - Fixed subl bug
     - Better logging messages
+v0.2.6:
+  date: 2015-3-31
+  changes:
+    - Updated readme
