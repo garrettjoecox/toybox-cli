@@ -25,10 +25,16 @@ if(process.argv.length < 3){
 program
     .command('init')
     .action(function(){
+        console.log('');
         inquirer.prompt([{type:'input',name:'username',message:'Enter Github username!'},{type:'input',name:'date',message:'When did you start @ HR? (2015-02, 2014-12, etc)'}], function(answers){
-            gulp.task('copy', copy());
-            gulp.task('git', ['copy'], git(answers.username, answers.date));
-            gulp.task('copyTests', ['git'], copyTests())
+            console.log('');
+            gulp.task('1', function(){ console.log('Copying files...'.grey); });
+            gulp.task('2', ['1'], copy());
+            gulp.task('3', ['2'], function(){ console.log('Installing dependencies...'.grey); });
+            gulp.task('4', ['3'], install());
+            gulp.task('5', ['4'], function(){ console.log('Cloning github repo...'.grey); });
+            gulp.task('6', ['5'], git(answers.username, answers.date));
+            gulp.task('7', ['6'], copyTests())
                 .start(function(){
                     console.log('');
                     console.log("Done! Now cd into 'toybox'".grey);
@@ -69,8 +75,7 @@ function copy(){
     return function(){
         var toybox = path.join(__dirname, '../lib/toybox/**/*');
         return gulp.src(toybox)
-            .pipe(gulp.dest(process.cwd()+'/toybox'))
-            .pipe(ginstall());
+            .pipe(gulp.dest(process.cwd()+'/toybox'));
     };
 }
 
@@ -85,23 +90,29 @@ function copyTests(){
     return;
 }
 
-function git(username, date){
-    return shell.task([
-        'git clone https://github.com/' + username + '/' + date + '-toy-problems.git toybox/toy-problems-repo; cd toybox/toy-problems-repo/ && git remote add upstream https://github.com/hackreactor/' + date + '-toy-problems.git'
-    ]);
-}
-
-function open(){
-    return shell.task([
-        'subl toy-problems-repo'
-    ]);
-}
-
 function runGulp(){
     return function(){
         return gulp.src(process.cwd()+'/gulpfile.js')
             .pipe(gulpGulp());
     };
+}
+
+function git(username, date){
+    return shell.task([
+        'git clone https://github.com/' + username + '/' + date + '-toy-problems.git toybox/toy-problems-repo; cd toybox/toy-problems-repo/ && git remote add upstream https://github.com/hackreactor/' + date + '-toy-problems.git'
+    ], {quiet: true});
+}
+
+function install(){
+    return shell.task([
+        'cd toybox && npm install'
+    ], {quiet: true});
+}
+
+function open(){
+    return shell.task([
+        'subl toy-problems-repo'
+    ], {ignoreErrors: true});
 }
 
 function pull(){
