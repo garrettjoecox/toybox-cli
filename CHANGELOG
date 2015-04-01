@@ -31,3 +31,7 @@ v0.2.6:
   date: 2015-3-31
   changes:
     - Updated readme
+v0.3.0:
+  date: 2015-4-1
+  changes:
+    - Complete refactor
