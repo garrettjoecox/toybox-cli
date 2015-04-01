@@ -27,9 +27,8 @@ program
     .action(function(){
         inquirer.prompt([{type:'input',name:'username',message:'Enter Github username!'},{type:'input',name:'date',message:'When did you start @ HR? (2015-02, 2014-12, etc)'}], function(answers){
             gulp.task('copy', copy());
-            gulp.task('git', git(answers.username, answers.date));
-            gulp.task('copyTests', copyTests());
-            gulp.task('sequence', sequence('copy', 'git', 'copyTests'))
+            gulp.task('git', ['copy'], git(answers.username, answers.date));
+            gulp.task('copyTests', ['git'], copyTests())
                 .start(function(){
                     console.log('');
                     console.log("Done! Now cd into 'toybox'".grey);
@@ -76,11 +75,14 @@ function copy(){
 }
 
 function copyTests(){
-    return function(){
-        var test = path.join(__dirname, '../lib/tests.js');
-        return gulp.src(test)
+    if(!fs.existsSync(process.cwd()+'/toybox/toy-problems-repo/tests.js')){
+        return function(){
+            var test = path.join(__dirname, '../lib/tests.js');
+            return gulp.src(test)
             .pipe(gulp.dest(process.cwd()+'/toybox/toy-problems-repo'));
-    };
+        };
+    }
+    return;
 }
 
 function git(username, date){

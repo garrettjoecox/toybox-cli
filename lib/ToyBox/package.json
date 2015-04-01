@@ -1,6 +1,6 @@
 {
   "name": "toybox",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "An enviroment for toy problems",
   "author": "Garrett Cox <garrettjcox@gmail.com>",
   "license": "ISC",

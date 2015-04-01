@@ -17,3 +17,8 @@ v0.2.3:
   changes:
     - Added better interface
     - Changed location of test file
+v0.2.4:
+  date: 2015-3-31
+  changes:
+    - Fixed copy tests bug
+    - Fixed running init twice bug
