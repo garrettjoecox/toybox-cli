@@ -24,9 +24,9 @@ the live reload server. (It will reload the window upon saving files)
 As of 0.2.0, `toybox init` now adds the upstream remote for you, and you know
 have access to the methods pull and push.
 
-`toybox pull` Pulls any new toy problems from HR's upstream remote
+`toybox pull`  - Pulls any new toy problems from HR's upstream remote
 
-`toybox push` Prompts for commit message and pushes any changes up to your origin master
+`toybox push`  - Prompts for commit message and pushes any changes up to your origin master
 
 ## Support
 If you have any problem or suggestion please open an issue [here](https://github.com/garrettjoecox/toybox-cli/issues).

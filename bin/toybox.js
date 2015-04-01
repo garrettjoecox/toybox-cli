@@ -121,7 +121,7 @@ function copyTests() {
 // Opens toy-problems-repo with sublime
 function openSubl() {
     return shell.task([
-        'subl toy-problems-repo'
+        'open -a "Sublime Text" toy-problems-repo'
     ], {ignoreErrors: true});
 }
 

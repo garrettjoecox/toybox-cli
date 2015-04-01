@@ -35,3 +35,7 @@ v0.3.0:
   date: 2015-4-1
   changes:
     - Complete refactor
+v0.3.1:
+  date: 2015-4-1
+  changes:
+    - Attempt #2 at fixing subl bug
