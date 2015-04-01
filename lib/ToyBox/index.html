@@ -24,15 +24,10 @@
   <script src="lib/chai.js"></script>
   <script>mocha.setup('bdd')</script>
 
+  <!-- inject:js -->
+  <!-- endinject -->
 
-  <!-- Add your Toy-Problem.js here! -->
-
-  <script src="/toy-problems-repo/rockPaperScissors/rockPaperScissors.js"></script>
-
-  <!-- ============================= -->
-
-
-  <script src="ToyBoxTests.js"></script>
+  <script src="toy-problems-repo/tests.js"></script>
   <script>
   mocha.checkLeaks();
   mocha.globals(['jQuery']);

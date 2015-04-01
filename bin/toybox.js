@@ -12,8 +12,14 @@ var fs = require('fs');
 require('colors');
 
 if(process.argv.length < 3){
-    console.log("Thanks for using toybox! (By Garrett Cox)".grey);
-    console.log("Run 'toybox init' to get started!".grey);
+    console.log('');
+    console.log("Thanks for using toybox <3 (By Garrett Cox)".grey);
+    console.log('');
+    console.log('toybox '.green + 'init'.blue + ' - initalize a toybox'.grey);
+    console.log('toybox '.green + 'start'.blue + ' - start a livereload watching the toybox'.grey);
+    console.log('toybox '.green + 'pull'.blue + " - pull new problems from HR's upstream".grey);
+    console.log('toybox '.green + 'push'.blue + ' - push changes to your toy problems repo'.grey);
+    console.log('');
 }
 
 program
@@ -21,7 +27,16 @@ program
     .action(function(){
         inquirer.prompt([{type:'input',name:'username',message:'Enter Github username!'},{type:'input',name:'date',message:'When did you start @ HR? (2015-02, 2014-12, etc)'}], function(answers){
             gulp.task('copy', copy());
-            gulp.task('git', git(answers.username, answers.date)).start();
+            gulp.task('git', git(answers.username, answers.date));
+            gulp.task('copyTests', copyTests());
+            gulp.task('sequence', sequence('copy', 'git', 'copyTests'))
+                .start(function(){
+                    console.log('');
+                    console.log("Done! Now cd into 'toybox'".grey);
+                    console.log('and run '.grey + 'toybox '.green + 'start'.blue);
+                    console.log('');
+                });
+
         });
     });
 
@@ -57,6 +72,14 @@ function copy(){
         return gulp.src(toybox)
             .pipe(gulp.dest(process.cwd()+'/toybox'))
             .pipe(ginstall());
+    };
+}
+
+function copyTests(){
+    return function(){
+        var test = path.join(__dirname, '../lib/tests.js');
+        return gulp.src(test)
+            .pipe(gulp.dest(process.cwd()+'/toybox/toy-problems-repo'));
     };
 }
 

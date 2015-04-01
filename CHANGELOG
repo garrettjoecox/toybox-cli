@@ -12,3 +12,8 @@ v0.2.2:
   date: 2015-3-28
   changes:
     - NPM Link issue fixed
+v0.2.3:
+  date: 2015-3-31
+  changes:
+    - Added better interface
+    - Changed location of test file
