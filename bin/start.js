@@ -13,7 +13,7 @@ module.exports = function() {
     gulp.task('openSubl', openSubl());
     gulp.task('runGulp', runGulp()).start();
   } else {
-    help();
+    require('./help')();
     console.log("You're not in a toybox!".red);
     console.log('');
   }

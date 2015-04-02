@@ -2,6 +2,7 @@
 /* dependencies */
 
 var shell = require('gulp-shell');
+var gulp = require('gulp');
 require('colors');
 
 /* toybox push */
@@ -12,7 +13,7 @@ module.exports = function() {
       'cd toy-problems-repo && git pull upstream master'
     ])).start();
   } else {
-    help();
+    require('./help')();
     console.log("You're not in a toybox!".red);
     console.log('');
   }

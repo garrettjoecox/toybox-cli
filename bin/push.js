@@ -3,6 +3,7 @@
 
 var inquirer = require('inquirer');
 var shell = require('gulp-shell');
+var gulp = require('gulp');
 require('colors');
 
 /* toybox push */
@@ -15,7 +16,7 @@ module.exports = function() {
       ])).start();
     });
   } else {
-    help();
+    require('./help')();
     console.log("You're not in a toybox!".red);
     console.log('');
   }
