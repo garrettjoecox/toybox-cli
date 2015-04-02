@@ -20,6 +20,7 @@
       <div class="card white" id="mocha"></div>
   </main>
   <script src="lib/jquery.js"></script>
+  <script src="lib/should.js"></script>
   <script src="lib/mocha.js"></script>
   <script src="lib/chai.js"></script>
   <script>mocha.setup('bdd')</script>
@@ -28,7 +29,6 @@
   <!-- endinject -->
 
   <script>
-  mocha.checkLeaks();
   mocha.globals(['jQuery']);
   mocha.run();
   </script>

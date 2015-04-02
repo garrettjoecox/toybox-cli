@@ -49,3 +49,8 @@ v0.4.1:
   date: 2015-4-2
   changes:
     - Bug squashing
+v0.4.2:
+  date: 2015-4-2
+  changes:
+    - Redone testing, now using should
+    - Fixes some spacing and line errors
