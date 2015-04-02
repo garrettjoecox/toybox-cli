@@ -45,3 +45,7 @@ v0.4.0:
     - Major rewrite/refactor
     - Lightning fast
     - Seperated commands into seperate files
+v0.4.1:
+  date: 2015-4-2
+  changes:
+    - Bug squashing
