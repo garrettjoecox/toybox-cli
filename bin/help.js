@@ -1,8 +1,4 @@
 
-/* dependencies */
-
-require('colors');
-
 /* toybox help */
 
 module.exports = function(){

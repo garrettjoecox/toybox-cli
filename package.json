@@ -6,7 +6,7 @@
     "toybox": "bin/toybox.js"
   },
   "dependencies": {
-    "colors": "^0.6.2",
+    "colorslite": "0.0.1",
     "gulp": "^3.5.6",
     "gulp-gulp": "^0.0.3",
     "gulp-shell": "^0.3.0",

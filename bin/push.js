@@ -4,7 +4,6 @@
 var inquirer = require('inquirer');
 var shell = require('gulp-shell');
 var gulp = require('gulp');
-require('colors');
 
 /* toybox push */
 

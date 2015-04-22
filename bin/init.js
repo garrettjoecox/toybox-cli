@@ -6,7 +6,6 @@ var shell = require('gulp-shell');
 var path = require('path');
 var gulp = require('gulp');
 var fs = require('fs');
-require('colors');
 
 /* toybox init */
 

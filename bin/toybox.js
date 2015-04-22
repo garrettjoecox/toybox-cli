@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('colorslite');
+
 var commands = {
     init: true,
     help: true,
